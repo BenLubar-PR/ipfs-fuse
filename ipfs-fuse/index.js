@@ -12,6 +12,8 @@ const createStatfs = require('./statfs')
 const createUnlink = require('./unlink')
 const createUtimens = require('./utimens')
 const createWrite = require('./write')
+const createGetxattr = require('./getxattr')
+const createListxattr = require('./listxattr')
 
 module.exports = (ipfs) => Object.assign(
   createCreate(ipfs),
@@ -27,5 +29,7 @@ module.exports = (ipfs) => Object.assign(
   createStatfs(ipfs),
   createUnlink(ipfs),
   createUtimens(ipfs),
-  createWrite(ipfs)
+  createWrite(ipfs),
+  createGetxattr(ipfs),
+  createListxattr(ipfs)
 )

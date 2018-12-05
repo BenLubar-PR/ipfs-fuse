@@ -1,16 +1,12 @@
 #!/usr/bin/env node
 
-const Os = require('os')
-const Path = require('path')
 const IpfsFuse = require('./')
 
-const mountPath = process.platform !== 'win32'
-  ? Path.join(Os.homedir(), 'IPFS')
-  : 'I:\\'
+const mountPath = '/storage/ipfs/fuse'
 
 IpfsFuse.mount(mountPath, {
   ipfs: {},
-  fuse: { displayFolder: true, force: true }
+  fuse: { displayFolder: true, force: true, options: ['allow_other'] }
 }, (err) => {
   if (err) return console.error(err.message)
   console.log(`Mounted IPFS filesystem on ${mountPath}`)

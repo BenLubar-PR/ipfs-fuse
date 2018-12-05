@@ -1,6 +1,6 @@
 const Fuse = require('fuse-bindings')
 const debug = require('debug')('ipfs-fuse:index')
-const IpfsApi = require('ipfs-api')
+const IpfsApi = require('ipfs-http-client')
 const mkdirp = require('mkdirp')
 const Async = require('async')
 const explain = require('explain-error')
